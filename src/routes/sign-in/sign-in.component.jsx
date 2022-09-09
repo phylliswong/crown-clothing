@@ -1,4 +1,4 @@
-import { 
+import {
   signInWithGooglePopup,
   createUserDocumentFromAuth
 } from '../../utils/firebase/firebase.utils';
@@ -9,7 +9,7 @@ import { Outlet } from "react-router-dom"
 const SignIn = () => {
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await createUserDocumentFromAuth(user);
   }
 
   return (
