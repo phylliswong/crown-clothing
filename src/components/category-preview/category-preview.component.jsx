@@ -1,32 +1,25 @@
-import { useContext, Fragment } from "react";
-import { useNavigate } from 'react-router-dom';
-import { CategoriesContext } from "../../contexts/categories.context";
+import { Link } from 'react-router-dom';
 import ProductCard from "../product-card/product-card.component";
 
-const CategoryPreview = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
-  const navigate = useNavigate();
+import './category-preview.styles.scss';
 
-  const gotToHatsHandler = () => {
-    navigate('/shop/hats');
-  }
+const CategoryPreview = ({ title, products }) => {
 
   return (
-    <Fragment>
-      {
-        Object.keys(categoriesMap).map(title => (
-          <Fragment key={title}>
-            <h2 onClick={gotToHatsHandler}>{title}</h2>
-
-            <div className="products-container">
-              {categoriesMap[title].slice(0,4).map((product) => {
-                return <ProductCard product={product} key={product.id}/>
-              })}
-            </div>
-          </Fragment>
-        ))
-      }
-    </Fragment>
+    <div className="category-preview-container">
+      <h2>
+        <Link className='title' to={title}>
+          {title.toUpperCase()}
+        </Link>
+      </h2>
+      <div className="preview">
+        {products.filter((_, idx) => idx < 4)
+          .map((product) => (
+            <ProductCard key={product.id} product={product} />
+          )
+        )}
+      </div>
+    </div>
   )
 }
 

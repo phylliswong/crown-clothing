@@ -1,13 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { getCollectionAndDocuments } from "../utils/firebase/firebase.utils.js";
-import SHOP_DATA from '../shop-data.js';
 
 export const CategoriesContext = createContext({
   categoriesMap: {},
 });
 
 export const CategoriesProvider = ({ children }) => {
-  // TODO: refactor add to work with new data structure
   const [categoriesMap, setCategoriesMap] = useState({});
   const value = { categoriesMap };
 
