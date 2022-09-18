@@ -88,8 +88,8 @@ export const CartProvider = ({ children }) => {
     cartTotal,
   }, dispatch] = useReducer(cartReducer, INITIAL_STATE);
 
-  const setIsCartOpen = () => {
-    dispatch({ type: CART_ACTION_TYPES.SET_IS_CART_OPEN, payload: !isCartOpen });
+  const setIsCartOpen = (bool) => {
+    dispatch({ type: CART_ACTION_TYPES.SET_IS_CART_OPEN, payload: bool });
   }
 
   const updateCartItems = (newCartItems) => {
