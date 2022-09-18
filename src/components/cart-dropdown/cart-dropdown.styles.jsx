@@ -1,4 +1,8 @@
-import { BaseButton, GoogleSignInButton, InvertedButton } from '../button/button.styles';
+import {
+  BaseButton,
+  GoogleSignInButton,
+  InvertedButton,
+} from '../button/button.styles';
 import styled from 'styled-components';
 
 export const Dropdown = styled.div`

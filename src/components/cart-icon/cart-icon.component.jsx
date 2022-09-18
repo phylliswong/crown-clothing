@@ -1,8 +1,11 @@
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 
-import { CartIconContainer, BagIcon, ItemCount } from './cart-icon.styles.jsx';
-import './cart-icon.styles.jsx';
+import {
+  CartIconContainer,
+  ShoppingIcon,
+  ItemCount
+} from './cart-icon.styles';
 
 
 const CartIcon = () => {
@@ -16,7 +19,7 @@ const CartIcon = () => {
 
   return (
     <CartIconContainer onClick={toggleIsCartOpen}>
-      <BagIcon className='shopping-icon'/>
+      <ShoppingIcon className='shopping-icon'/>
       <ItemCount className='item-count'>{cartCount}</ItemCount>
     </CartIconContainer>
   )
