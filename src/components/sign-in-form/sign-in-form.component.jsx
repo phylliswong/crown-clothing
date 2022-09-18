@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import {
   signInAuthUserFromEmailAndPassword,
@@ -20,7 +20,6 @@ const SignInForm = () => {
   const signInWithGoogle = async () => {
     const response = await signInWithGooglePopup();
     if (response) {
-      // handle the case where a user enters email & password before google sign in
       resetFormFields();
     }
   }
@@ -84,7 +83,7 @@ const SignInForm = () => {
           <Button
             type="button"
             onClick={signInWithGoogle}
-            buttonType={"google"}
+            buttonType={BUTTON_TYPE_CLASSES.google}
           >sign in with google</Button>
         </div>
       </form>
