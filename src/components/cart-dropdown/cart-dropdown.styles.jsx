@@ -1,3 +1,4 @@
+import { BaseButton, GoogleSignInButton, InvertedButton } from '../button/button.styles';
 import styled from 'styled-components';
 
 export const Dropdown = styled.div`
@@ -12,6 +13,12 @@ export const Dropdown = styled.div`
   top: 90px;
   right: 40px;
   z-index: 5;
+
+  ${BaseButton},
+  ${GoogleSignInButton},
+  ${InvertedButton} {
+    margin-top: auto;
+  }
 `;
 
 export const EmptyMessage = styled.div`
