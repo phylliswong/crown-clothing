@@ -1,6 +1,5 @@
 import {
   createContext,
-  useEffect,
   useReducer,
 } from "react";
 
@@ -111,9 +110,6 @@ export const CartProvider = ({ children }) => {
     })
   }
 
-  useEffect(() => {
-    updateCartItems(cartItems);
-  }, [cartItems]);
 
   const addItemToCart = (cartItemToAdd) => {
     const newCartItems = addCartItem(cartItems, cartItemToAdd);
