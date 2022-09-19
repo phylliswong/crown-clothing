@@ -1,7 +1,6 @@
 import {
   createContext,
-  useEffect,
-  useState,
+  useReducer,
 } from "react";
 
 
@@ -50,25 +49,15 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
-
-  useEffect(() => {
-    const newCartCount = cartItems.reduce(
-      (subTotal, cartItem) => subTotal + cartItem.quantity, 0
-    );
-    setCartCount(newCartCount);
-
-  }, [cartItems]);
-
-  useEffect(() => {
-    const newCartTotal = cartItems.reduce(
-      (subtotal, cartItem) => subtotal + cartItem.quantity * cartItem.price, 0
-    );
-    setCartTotal(newCartTotal);
-  }, [cartItems])
+  dispatch({
+    type: CART_ACTION_TYPES.UPDATE_CART_ITEMS,
+    payload: {
+      cartItems: newCartItems,
+      cartTotal: newCartTotal,
+      cartCount: newCartCount,
+    },
+  })
+  }
 
   const addItemToCart = (cartItemToAdd) => {
     setCartItems(addCartItem(cartItems, cartItemToAdd));
